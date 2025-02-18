@@ -19,4 +19,8 @@ class Student extends Model
         'gender',
     ];
 
+    public function getFullName(){
+        return $this->first_name . " " . $this->last_name; 
+    }
+
 }

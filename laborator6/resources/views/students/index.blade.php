@@ -18,7 +18,7 @@
                 @forelse ($students as $student)
                     <tr class="border-b border-slate-200">
                         <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $loop->iteration }}</td>
-                        <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $student->first_name }} {{ $student->last_name }}</td>
+                        <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $student->getFullName() }}</td>
                         <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $student->email }}</td>
                         <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $student->phone_number }}</td>
                         <td class="py-1 px-4 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">{{ $student->address }}</td>
