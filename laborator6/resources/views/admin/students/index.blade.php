@@ -8,6 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4">
+                <div class="flex justify-end">
+                    <a href="{{ route("admin.students.create") }}" 
+                       class="underline underline-offset-4 py-2 px-3 text-xs font-bold hover:text-slate-600">Adauga un student</a>
+                </div>
                 <div class="overflow-x-auto">
                     <table class="min-w-full table-auto bg-white shadow-md rounded-lg">
                         <thead>
