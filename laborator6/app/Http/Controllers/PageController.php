@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+
 class PageController extends Controller
 {
     public function index(){
-        return view('students.index');
+        $students = Student::all();
+        return view('students.index', ['students' => $students]);
     }
 }
 
