@@ -13,7 +13,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view();
+        $students = Student::all();
+        return view('admin.students.index',[
+            'students' => $students
+        ]);
     }
 
     /**
