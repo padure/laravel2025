@@ -10,14 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4">
                 <div class="flex justify-start">
                     <a href="{{ route('admin.students.index') }}" 
-                       class="underline underline-offset-4 py-2 px-3 text-xs font-bold hover:text-slate-600">Înapoi la listă</a>
+                       class="underline underline-offset-4 py-2 px-3 text-xs text-slate-700 font-bold hover:text-slate-600">Înapoi la listă</a>
                 </div>
 
                 <!-- Formularul pentru crearea unui student -->
                 <div class="mt-6 w-1/2 m-auto">
                     <form action="{{ route('admin.students.store') }}" method="POST">
                         @csrf
-                        <h3 class="mb-4 font-bold text-center text-gray-700">Adauga un student</h3>
+                        <h3 class="mb-4 font-bold text-center text-gray-700">Adaugă un student</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <!-- Nume -->
                             <div class="flex flex-col gap-3 mb-3 items-center">

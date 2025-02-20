@@ -8,9 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4">
+                @if (session('success'))
+                    <div class="bg-green-700 text-white p-3 font-bold rounded-sm text-xs">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="flex justify-end">
-                    <a href="{{ route("admin.students.create") }}" 
-                       class="underline underline-offset-4 py-2 px-3 text-xs font-bold hover:text-slate-600">Adauga un student</a>
+                    <a href="{{ route("admin.students.create") }}"
+                        class="underline underline-offset-4 py-2 px-3 text-xs font-bold hover:text-slate-600">Adauga un student</a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="min-w-full table-auto bg-white shadow-md rounded-lg">
@@ -36,9 +41,9 @@
                                 <td class="py-1 px-4 text-xs text-slate-700 hover:bg-slate-100 cursor-pointer">{{ ucfirst($student->gender) }}</td>
                                 <td class="py-1 px-4 text-xs hover:bg-slate-100 cursor-pointer">
                                     <a href="{{ route('admin.students.edit', ['student'=>$student->id]) }}" class="text-orange-500">Edit</a>
-                                    <a href="{{ route('admin.students.destroy', ['student' => $student->id]) }}" 
-                                       class="text-red-700">
-                                       Delete
+                                    <a href="{{ route('admin.students.destroy', ['student' => $student->id]) }}"
+                                        class="text-red-700">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>

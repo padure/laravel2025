@@ -32,7 +32,9 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        Student::create($request->all());
+        return redirect()->route('admin.students.index')
+                         ->with('success', 'Studentul a fost inregistrat cu succes!');
     }
 
     /**
