@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Adaugă un nou student') }}
+        <h2 class="font-semibold text-md text-gray-800 leading-tight">
+            {{ __('Înregistrează un student') }}
         </h2>
     </x-slot>
 
@@ -14,10 +14,11 @@
                 </div>
 
                 <!-- Formularul pentru crearea unui student -->
-                <div class="mt-6 w-1/3 m-auto">
+                <div class="mt-6 w-1/2 m-auto">
                     <form action="{{ route('admin.students.store') }}" method="POST">
                         @csrf
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <h3 class="mb-4 font-bold text-center text-gray-700">Adauga un student</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <!-- Nume -->
                             <div class="flex flex-col gap-3 mb-3 items-center">
                                 <label for="first_name" class="text-sm font-semibold text-gray-700 mb-1">Prenume</label>
@@ -71,7 +72,7 @@
                             <!-- Gen -->
                             <div class="flex flex-col gap-3 mb-3 items-center">
                                 <label for="gender" class="text-sm font-semibold text-gray-700 mb-1">Gen</label>
-                                <select id="gender" name="gender" class="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <select id="gender" name="gender" class="w-full py-1 px-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                     <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Masculin</option>
                                     <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Feminin</option>
                                     <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Altul</option>
@@ -82,8 +83,8 @@
                             </div>
                         </div>
 
-                        <div class="mt-6 text-right">
-                            <button type="submit" class="text-sm w-full px-6 py-1 bg-slate-600 text-white rounded-md hover:bg-slate-700 hover:cursor-pointer">Adaugă studentul</button>
+                        <div class="mt-6 text-center">
+                            <button type="submit" class="text-sm px-6 py-2 bg-slate-600 text-white rounded-md hover:bg-slate-700 hover:cursor-pointer">Adaugă studentul</button>
                         </div>
                     </form>
                 </div>
