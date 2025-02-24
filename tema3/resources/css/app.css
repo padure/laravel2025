@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Stilizare suplimentară pentru Splide.js ===== */
+
+
+/* Suprascriem butoanele pentru un aspect mai modern */
+.splide__arrow {
+    @apply bg-white p-3 rounded-full shadow-md transition-all duration-300 hover:bg-gray-100;
+}
+
+/* Poziționăm corect săgețile */
+.splide__arrow--prev {
+    @apply left-4;
+}
+
+.splide__arrow--next {
+    @apply right-4;
+}
+
+/* Stilizare paginare (buline) */
+.splide__pagination {
+    position: absolute !important;
+    bottom: 15px !important;  /* Poziționează paginarea la 15px de jos */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    gap: 8px;
+    z-index: 10; /* Se asigură că paginarea este vizibilă */
+    width: max-content !important; /* Previne alinierea greșită */
+}
+
+.splide__pagination__page {
+    @apply w-3 h-3 bg-gray-400 rounded-full transition-all duration-300;
+}
+
+.splide__pagination__page.is-active {
+    @apply bg-white scale-125;
+}
+
+/* Suprapunere text peste slide-uri */
+.splide__slide .overlay {
+    @apply absolute inset-0 bg-black/40 flex items-center justify-center text-white text-2xl font-semibold;
+}
