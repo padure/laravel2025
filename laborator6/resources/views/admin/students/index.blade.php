@@ -55,6 +55,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="my-3 paginate">
+                    {{ $students->links("vendor.pagination.tailwind") }}
+                </div>
             </div>
         </div>
     </div>
