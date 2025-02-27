@@ -16,4 +16,4 @@ Route::get('/login', function(){
 Route::get('/products', function(Request $request){
     $products = Product::all();
     return view('products', ['products' => $products]);
-})->middleware([CheckStatusTrue::class]);
+})->middleware([CheckStatusTrue::class, 'auth']);
