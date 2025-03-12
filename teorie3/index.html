@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphones Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gallery-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .gallery img {
+            width: 100vw;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="flex justify-between items-center p-4 bg-white shadow-md">
+        <h1 class="text-xl font-bold">Headphones Store</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-gray-600">HOME</a></li>
+                <li><a href="#products" class="hover:text-gray-600">NEW PRODUCTS</a></li>
+                <li><a href="#gallery" class="hover:text-gray-600">GALLERY</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="relative text-center py-16">
+        <img src="images/earphones.jpg" alt="Earphones" class="w-full">
+        <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl font-bold text-black">
+            PUT THE WORLD ON MUTE
+        </h2>
+    </section>
+
+    <section id="products" class="text-center py-16">
+        <h2 class="text-2xl font-bold mb-6">NEW PRODUCTS</h2>
+        <div class="grid grid-cols-3 gap-4 px-10">
+            <div class="bg-white p-4 shadow-md">
+                <img src="images/beats-solo1.jpg" alt="Beats Solo">
+                <p>Beats Solo</p>
+                <p>$150.00</p>
+            </div>
+            <div class="bg-white p-4 shadow-md">
+                <img src="images/beats-solo2.jpg" alt="Beats Solo">
+                <p>Beats Solo</p>
+                <p>$150.00</p>
+            </div>
+            <div class="bg-white p-4 shadow-md">
+                <img src="images/beats-solo3.jpg" alt="Beats Solo">
+                <p>Beats Solo</p>
+                <p>$150.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="text-center py-16">
+        <h2 class="text-2xl font-bold mb-6">GALLERY</h2>
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/gallery1.jpg" alt="Gallery Image 1">
+                <img src="images/gallery2.jpg" alt="Gallery Image 2">
+                <img src="images/gallery3.jpg" alt="Gallery Image 3">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let index = 0;
+        function slideGallery() {
+            const gallery = document.querySelector('.gallery');
+            const images = document.querySelectorAll('.gallery img');
+            index = (index + 1) % images.length;
+            gallery.style.transform = `translateX(-${index * 100}vw)`;
+        }
+        setInterval(slideGallery, 3000);
+    </script>
+</body>
+</html>

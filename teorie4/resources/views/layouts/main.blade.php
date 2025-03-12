@@ -13,27 +13,27 @@
     <!-- Navbar -->
     <nav class="mb-10 shadow shadow-blue-100">
         <div class="container m-auto h-14 flex items-center justify-between">
-        <div class="flex gap-4">
-            <a href="{{ route('pages.index') }}" class="text-blue-950">Acasa</a>
-            <a href="" class="text-blue-950">Servicii</a>
-            <a href="" class="text-blue-950">Contacte</a>
-        </div>
-        <div>
-            @auth
-                <a href="{{ url('/dashboard') }}" class="text-blue-950">
-                    Dashboard
-                </a>
-            @else
-                <a href="{{ route('login') }}" class="text-blue-950">
-                    Log in
-                </a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="text-blue-950">
-                            Register
-                        </a>
-                    @endif
-            @endauth
-        </div>
+            <div class="flex gap-4">
+                <a href="{{ route('pages.index') }}" class="text-blue-950">Acasa</a>
+                <a href="" class="text-blue-950">Servicii</a>
+                <a href="" class="text-blue-950">Contacte</a>
+            </div>
+            <div class="flex gap-4">
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="text-blue-950">
+                        Dashboard
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="text-blue-950">
+                        Log in
+                    </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="text-blue-950">
+                                Register
+                            </a>
+                        @endif
+                @endauth
+            </div>
         </div>
     </nav>
     <!-- Header -->
