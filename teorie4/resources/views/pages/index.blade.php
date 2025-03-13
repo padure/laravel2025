@@ -11,34 +11,31 @@
     </x-slot>
 
     <section class="container m-auto mt-8">
-        <h4 class="text-3xl text-blue-950 font-bold mb-8">Servicii</h4>
+        <h4 class="text-3xl text-blue-950 font-bold">Servicii</h4>
 
-        <!-- Carduri pentru servicii -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            @foreach($services as $service)
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
-                <!-- Imaginea serviciului -->
-                @if($service->image)
-                <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover rounded-md mb-4">
-                @else
-                <div class="w-full h-48 bg-gray-200 rounded-md mb-4"></div> <!-- Placeholder pentru imagine -->
-                @endif
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            @foreach ($services as $service)
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img
+                    src="{{ asset($service->image) }}"
+                    alt="{{ $service->title }}"
+                    class="w-full h-48 object-cover">
 
-                <!-- Titlu serviciu -->
-                <h5 class="text-xl font-semibold text-blue-950 mb-2">{{ $service->title }}</h5>
+                <div class="p-6">
+                    <h5 class="text-xl font-semibold text-blue-950">{{ $service->title }}</h5>
+                    <p class="text-sm text-gray-700 mt-2">
+                        {{ Str::limit($service->description, 100) }}
+                    </p>
 
-                <!-- Descrierea serviciului -->
-                <p class="text-sm text-gray-600 mb-4">{{ Str::limit($service->description, 100) }}</p>
-
-                <!-- Statusul serviciului -->
-                <span
-                    class="inline-block px-4 py-1 text-sm font-semibold text-white 
-                        {{ $service->status == 'activ' ? 'bg-green-500' : 'bg-red-500' }} 
-                        rounded-full">
-                    {{ ucfirst($service->status) }}
-                </span>
+                    <!-- Link "Află mai mult" -->
+                    <a href="{{ route('services.show', $service->id) }}"
+                        class="text-blue-950 hover:text-blue-700 mt-4 inline-block">
+                        Află mai mult
+                    </a>
+                </div>
             </div>
             @endforeach
         </div>
     </section>
+
 </x-main-layout>
