@@ -10,18 +10,42 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1 class="text-lg font-bold mb-6">Inregistreaza un serviciu</h1>
-                    <form action="{{ route('services.store') }}" method="post" class="w-1/2">
+                    <form action="{{ route('services.store') }}" method="post" class="w-1/2" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="title" class="font-bold">Title</label>
-                            <input type="text" name="title" id="title" class="p-2 border rounded-md w-full">
+                            <input 
+                                type="text" 
+                                name="title" 
+                                id="title" 
+                                class="p-2 border rounded-md w-full" 
+                            />
+                            @error('title')
+                                <div class="text-red-700">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="description" class="font-bold">Description</label>
-                            <textarea name="description" id="description" class="p-2 border rounded-md w-full"></textarea>
+                            <textarea 
+                                name="description" 
+                                id="description" 
+                                class="p-2 border rounded-md w-full"
+                            ></textarea>
+                            @error('description')
+                                <div class="text-red-700">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="image" class="font-bold">Description</label>
-                            <input type="file" name="image" id="image" class="p-2 border rounded-md w-full">
+                            <label for="image" class="font-bold">Image</label>
+                            <input 
+                                type="file" 
+                                name="image" 
+                                id="image" 
+                                class="p-2 border rounded-md w-full" 
+                            />
+                            @error('image')
+                                <div class="text-red-700">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="status" class="font-bold">Status</label>

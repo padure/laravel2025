@@ -6,7 +6,7 @@
                 src="{{ asset('images/header.jpg') }}" alt="Header" 
                 class="h-header object-cover w-full"
             >
-            <h1 class="title absolute left-20 top-52 text-5xl w-1/2 text-white shadow-sm lh-title">
+            <h1 class="title absolute left-20 top-52 text-5xl w-1/2 text-white lh-title">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </h1>
         </div>
