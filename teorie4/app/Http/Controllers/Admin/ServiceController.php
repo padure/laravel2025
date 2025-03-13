@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 use App\Models\Service;
 use App\Http\Requests\Admin\Services\StoreServiceRequest;
 use App\Http\Requests\Admin\Services\UpdateServiceRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageController;
 
 class ServiceController extends Controller
 {
@@ -36,14 +36,9 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request): RedirectResponse
     {
-        // Procesare imagine
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = Str::uuid() . '.' . $image->getClientOriginalExtension();
-            $imagePath = 'images/uploads/services/' . $imageName;
-            $image->move(public_path('images/uploads/services'), $imageName);
-        }
+        $imagePath = $request->hasFile('image') 
+                    ? ImageController::upload($request)
+                    : null;
         $service = new Service();
         $service->title = $request->input('title');
         $service->description = $request->input('description');
