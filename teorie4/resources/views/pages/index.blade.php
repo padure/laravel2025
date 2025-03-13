@@ -28,7 +28,7 @@
                     </p>
 
                     <!-- Link "Află mai mult" -->
-                    <a href="{{ route('pages.services.show', ['services' => $service->id]) }}"
+                    <a href="{{ route('pages.services.show', ['service' => $service->id]) }}"
                         class="text-blue-950 hover:text-blue-700 mt-4 inline-block">
                         Află mai mult
                     </a>
