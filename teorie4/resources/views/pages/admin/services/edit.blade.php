@@ -55,7 +55,8 @@
                             <!-- Afișarea imaginii actuale, dacă există -->
                             @if ($service->image)
                                 <div class="mt-4">
-                                    <img src="{{ asset($service->image) }}" alt="Current Image" class="w-32 h-32 object-cover rounded-md">
+                                    <img src="{{ asset($service->image) }}" alt="Current Image" 
+                                    class="w-32 h-32 object-cover rounded-md">
                                     <p class="mt-2 text-sm text-gray-600">Current Image</p>
                                 </div>
                             @endif

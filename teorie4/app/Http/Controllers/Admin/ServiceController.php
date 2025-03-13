@@ -36,9 +36,9 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request): RedirectResponse
     {
-        $imagePath = $request->hasFile('image') 
-                    ? ImageController::upload($request)
-                    : null;
+        $imagePath = $request->hasFile('image')
+            ? ImageController::upload($request)
+            : null;
         $service = new Service();
         $service->title = $request->input('title');
         $service->description = $request->input('description');
@@ -72,7 +72,24 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = ImageController::upload($request);
+            if ($service->image && file_exists(public_path($service->image))) {
+                unlink(public_path($service->image));
+            }
+        }
+        $service->title = $request->input('title');
+        $service->description = $request->input('description');
+        $service->status = $request->input('status');
+
+        if ($imagePath) {
+            $service->image = $imagePath;
+        }
+
+        $service->save();
+        
+        return redirect()->route('services.index')->with('success', 'Serviciul a fost actualizat cu succes.');
     }
 
     /**
