@@ -6,7 +6,7 @@
     <section class="container m-auto mt-12 px-6 lg:px-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Imaginea serviciului -->
-            <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+            <div class="bg-white overflow-hidden">
                 <img
                     src="{{ asset($service->image) }}"
                     alt="{{ $service->title }}"

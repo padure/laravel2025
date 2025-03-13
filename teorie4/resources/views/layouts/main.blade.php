@@ -46,6 +46,33 @@
     <main>
         {{ $slot }}
     </main>
+
+    <!-- Newsletter Section -->
+    <section class="bg-blue-950 text-white py-16 mt-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-6">Abonează-te la Newsletter</h2>
+            <p class="text-sm mb-8">Fii la curent cu ultimele noutăți, oferte și servicii exclusive.</p>
+
+            <form action="#" method="POST" class="max-w-xl mx-auto">
+                <div class="flex items-center justify-center space-x-4">
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Introdu adresa de email"
+                        class="py-3 px-4 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        required 
+                    />
+                    <button
+                        type="submit"
+                        class="bg-blue-100 text-blue-900 py-3 px-6 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-50">
+                        Abonează-te
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-blue-950 text-white py-8 mt-10">
         <div class="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
@@ -87,7 +114,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
