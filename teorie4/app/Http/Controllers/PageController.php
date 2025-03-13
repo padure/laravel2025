@@ -13,4 +13,8 @@ class PageController extends Controller
             'services' => $services
         ]);
     }
+
+    public function show(Service $service) :View{
+        return view('pages.show', ['service' => $service]);
+    }
 }
