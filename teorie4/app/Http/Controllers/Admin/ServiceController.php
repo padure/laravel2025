@@ -60,9 +60,11 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Service $service): View
     {
-        //
+        return view('pages.admin.services.edit', [
+            'service' => $service
+        ]);
     }
 
     /**
