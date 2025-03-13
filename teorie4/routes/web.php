@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
+Route::get('/service/{service}', [PageController::class, 'show'])->name('pages.services.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
