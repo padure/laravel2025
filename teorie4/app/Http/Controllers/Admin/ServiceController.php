@@ -46,7 +46,9 @@ class ServiceController extends Controller
         $service->status = $request->input('status');
         $service->save();
 
-        return redirect()->route('services.index')->with('success', 'Serviciul a fost adăugat cu succes.');
+        return redirect()
+                ->route('services.index')
+                ->with('success', 'Serviciul a fost adăugat cu succes.');
     }
 
     /**
