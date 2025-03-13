@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/service/{service}', [PageController::class, 'show'])->name('pages.services.show');
+
+//Newsletter
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

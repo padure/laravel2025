@@ -53,7 +53,8 @@
             <h2 class="text-2xl font-bold mb-6">Abonează-te la Newsletter</h2>
             <p class="text-sm mb-8">Fii la curent cu ultimele noutăți, oferte și servicii exclusive.</p>
 
-            <form action="#" method="POST" class="max-w-xl mx-auto">
+            <form action="{{ route('newsletter.subscribe') }}" method="POST" class="max-w-xl mx-auto">
+                @csrf
                 <div class="flex items-center justify-center space-x-4">
                     <input
                         type="email"
@@ -61,8 +62,10 @@
                         id="email"
                         placeholder="Introdu adresa de email"
                         class="py-3 px-4 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
-                        required 
-                    />
+                        required />
+                    @error('email')
+                        <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
+                    @enderror
                     <button
                         type="submit"
                         class="bg-blue-100 text-blue-900 py-3 px-6 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-50">
