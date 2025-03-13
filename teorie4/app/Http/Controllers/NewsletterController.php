@@ -21,7 +21,7 @@ class NewsletterController extends Controller
         $subscriber->save();
 
         // Trimiterea emailului de confirmare
-        Mail::to($request->email)->send(new NewsletterSubscribed($request->email));
+        Mail::to($request->email)->send(new NewsletterSubscribed($subscriber));
 
         // Întoarcerea unui mesaj de succes
         return redirect()->back()->with('success', 'Te-ai abonat cu succes la newsletter!');

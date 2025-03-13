@@ -13,15 +13,14 @@ use App\Models\Subscriber;
 class NewsletterSubscribed extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $subscriber;
+    
     /**
      * Create a new message instance.
      */
-    public function __construct(Subscriber $subscriber)
-    {
-        $this->subscriber = $subscriber;
-    }
+    public function __construct(
+        public Subscriber $subscriber,
+    )
+    {}
 
     /**
      * Get the message envelope.
