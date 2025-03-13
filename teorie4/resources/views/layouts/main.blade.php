@@ -50,9 +50,17 @@
     <!-- Newsletter Section -->
     <section class="bg-blue-950 text-white py-16 mt-16">
         <div class="container mx-auto text-center">
+            <!-- Mesaj de succes dacă există -->
+            @if (session('success'))
+                <div class="bg-blue-950 text-white p-4 rounded-md mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
             <h2 class="text-2xl font-bold mb-6">Abonează-te la Newsletter</h2>
             <p class="text-sm mb-8">Fii la curent cu ultimele noutăți, oferte și servicii exclusive.</p>
-
+            @error('email')
+                <div class="text-sm text-blue-100 mt-2">{{ $message }}</div>
+            @enderror
             <form action="{{ route('newsletter.subscribe') }}" method="POST" class="max-w-xl mx-auto">
                 @csrf
                 <div class="flex items-center justify-center space-x-4">
@@ -63,9 +71,6 @@
                         placeholder="Introdu adresa de email"
                         class="py-3 px-4 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
                         required />
-                    @error('email')
-                        <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
-                    @enderror
                     <button
                         type="submit"
                         class="bg-blue-100 text-blue-900 py-3 px-6 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-50">
