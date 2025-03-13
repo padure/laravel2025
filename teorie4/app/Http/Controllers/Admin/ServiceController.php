@@ -75,9 +75,7 @@ class ServiceController extends Controller
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = ImageController::upload($request);
-            if ($service->image && file_exists(public_path($service->image))) {
-                unlink(public_path($service->image));
-            }
+            ImageController::delete($service);
         }
         $service->title = $request->input('title');
         $service->description = $request->input('description');
@@ -89,7 +87,9 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect()->route('services.index')->with('success', 'Serviciul a fost actualizat cu succes.');
+        return redirect()
+                ->route('services.index')
+                ->with('success', 'Serviciul a fost actualizat cu succes.');
     }
 
     /**
