@@ -88,7 +88,7 @@ class ServiceController extends Controller
         }
 
         $service->save();
-        
+
         return redirect()->route('services.index')->with('success', 'Serviciul a fost actualizat cu succes.');
     }
 
@@ -97,6 +97,11 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        ImageController::delete($service);
+        $service->delete();
+        
+        return redirect()
+                ->route('services.index')
+                ->with('success', 'Serviciul a fost șters cu succes.');
     }
 }
