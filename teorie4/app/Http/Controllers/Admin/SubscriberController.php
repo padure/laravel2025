@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Subscriber;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Http\Requests\UpdateSubscriberRequest;
+use App\Http\Controllers\Controller;
 
 class SubscriberController extends Controller
 {
@@ -13,7 +14,10 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        //
+        $subscribers = Subscriber::all();
+        return view('pages.admin.subscribers.index', [
+            'subscribers' => $subscribers
+        ]);
     }
 
     /**
